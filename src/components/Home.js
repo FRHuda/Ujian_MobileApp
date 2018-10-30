@@ -56,6 +56,8 @@ mapStateToProps = (state) => {
         return val;
     })
 
+    const realpost = _.reverse(post);
+
     return { post };
 }
 
