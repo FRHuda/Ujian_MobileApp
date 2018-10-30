@@ -12,7 +12,8 @@ class HomeDetail extends Component {
             headerContentStyle,
             headerTextStyle,
             imageStyle,
-            textEmail
+            textEmail,
+            textCaption
         } = styles;
         const { email, url, caption } = this.props.post;
 
@@ -34,7 +35,7 @@ class HomeDetail extends Component {
                 </CardSection>
                 <CardSection>
                     <Text style={textEmail}>{email}</Text>
-                    <Text>{caption}</Text>
+                    <Text style={textCaption}>{caption}</Text>
                 </CardSection>
             </Card>
         )
@@ -64,7 +65,12 @@ const styles = {
     },
     textEmail: {
         marginRight: 10,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        alignSelf: 'center'
+    },
+    textCaption: {
+        flex: 1,
+        flexWrap: 'wrap'
     }
 };
 
