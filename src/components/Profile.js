@@ -62,7 +62,7 @@ class Profile extends Component {
                 <Header
                     centerComponent={{ text: this.state.email, style: { color: '#fff' } }}
                     rightComponent={{
-                        icon: 'home',
+                        icon: 'user',
                         color: '#fff',
                         onPress: () => this.buttonLogout()
                     }}
