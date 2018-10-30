@@ -14,6 +14,18 @@ class Profile extends Component {
         }
     }
 
+    buttonLogout = () => {
+        Alert.alert(
+            'Are you sure want to Log out ?',
+            '',
+            [
+                { text: 'No', onPress: () => { }, style: 'cancel' },
+                { text: 'Yes', onPress: this.logOut }
+            ],
+            { cancelable: false }
+        );
+    }
+
     logOut = () => {
         this.props.logoutUser();
         this.props.screenProps.rootNavigation.navigate('Login');
@@ -48,7 +60,12 @@ class Profile extends Component {
         return (
             <View>
                 <Header
-                    centerComponent={{ text: 'Profile', style: { color: '#fff' } }}
+                    centerComponent={{ text: this.state.email, style: { color: '#fff' } }}
+                    rightComponent={{
+                        icon: 'home',
+                        color: '#fff',
+                        onPress: () => this.buttonLogout()
+                    }}
                 />
                 <Card>
                     <CardSection>
@@ -81,7 +98,7 @@ class Profile extends Component {
                         <Text>Email: {this.state.email}</Text>
                     </CardSection>
                     <CardSection>
-                        <Button onPress={this.logOut}>Log Out</Button>
+                        <Button onPress={this.buttonLogout}>Log Out</Button>
                     </CardSection>
                 </Card>
             </View>
